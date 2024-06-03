@@ -4,7 +4,9 @@ name: Deploy
 # Configures this workflow to run every time a change is pushed to the branch called `release`.
 on:
   push:
-    branches: ['master']
+    # Sequence of patterns matched against refs/tags
+    tags:
+      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 
 jobs:
   build:
@@ -38,8 +40,8 @@ jobs:
       - name: Check paths3
         run: ls /home/runner/work/resumeskool-judge-ui/resumeskool-judge-ui
 
-      - name: Upload production-ready build files
-        uses: actions/upload-artifact@v2
+      - name: Upload Release asset
+        uses: actions/upload-release-asset@v1
         with:
           name: production-files
           path: ./dist
