@@ -24,7 +24,16 @@ jobs:
         run: npm install
 
       - name: Build project
-        run: npm run build:dll
+        run: ls /home/runner/work/
+
+      - name: Check paths1
+        run: ls /home/runner/work/
+
+      - name: Check paths2
+        run: ls /home/runner/work/resumeskool-judge-ui
+
+      - name: Check paths3
+        run: ls /home/runner/work/resumeskool-judge-ui/resumeskool-judge-ui
 
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v2
